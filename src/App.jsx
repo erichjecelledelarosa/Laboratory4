@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "./components/ProductCard";
 import SearchBar from "./components/SearchBar";
 import products from "./data/products";
@@ -11,8 +11,19 @@ function App() {
 
   // Lab 4 states for the live search and filter
   const [searchText, setSearchText] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("default");
+
+  // Debounce effect: wait 300ms after the user stops typing before
+  // updating debouncedSearch. The cleanup cancels the previous timer.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchText);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchText]);
 
   // This function is passed to every ProductCard as a prop.
   // The child calls it and sends the product title back up to App.
@@ -26,7 +37,7 @@ function App() {
   const filteredProducts = products.filter((product) => {
     const matchesSearch = product.title
       .toLowerCase()
-      .includes(searchText.toLowerCase());
+      .includes(debouncedSearch.toLowerCase());
 
     const matchesCategory = category === "All" || product.category === category;
 
@@ -46,6 +57,7 @@ function App() {
   // Clear Filters puts the search text, category, and sort order back to default
   function handleClearFilters() {
     setSearchText("");
+    setDebouncedSearch("");
     setCategory("All");
     setSortOrder("default");
   }
