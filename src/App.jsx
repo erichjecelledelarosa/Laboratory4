@@ -15,6 +15,17 @@ function App() {
   const [category, setCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("default");
 
+  // Debounce effect: when searchText changes, wait 300 milliseconds and
+  // then copy it into debouncedSearch. The cleanup function cancels the
+  // previous timer so only the final pause in typing triggers an update.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchText);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchText]);
+
   // This function is passed to every ProductCard as a prop.
   // The child calls it and sends the product title back up to App.
   function handleAddToCart(productTitle) {
