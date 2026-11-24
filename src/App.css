@@ -1,0 +1,127 @@
+/* Styles for the whole page */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f2fb;
+  color: #333333;
+  line-height: 1.5;
+}
+
+/* Used to center the content on the page */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  background-color: #6b46c1;
+  color: white;
+  padding: 15px 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.store-name {
+  font-size: 22px;
+}
+
+.cart-box {
+  background-color: white;
+  color: #6b46c1;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Hero section */
+.hero {
+  background-color: #e9d8fd;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.hero h2 {
+  color: #553c9a;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #5b5470;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cart message box */
+.cart-message {
+  background-color: white;
+  border-left: 5px solid #9f7aea;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin: 25px 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  color: #553c9a;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Small tablet */
+@media (max-width: 700px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h2 {
+    font-size: 22px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .store-name {
+    font-size: 18px;
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: #3c2f5c;
+  color: #d8d0e8;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
