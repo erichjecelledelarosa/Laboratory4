@@ -15,16 +15,6 @@ function App() {
   const [category, setCategory] = useState("All");
   const [sortOrder, setSortOrder] = useState("default");
 
-  // Debounce effect: wait 300ms after the user stops typing before
-  // updating debouncedSearch. The cleanup cancels the previous timer.
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(searchText);
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [searchText]);
-
   // This function is passed to every ProductCard as a prop.
   // The child calls it and sends the product title back up to App.
   function handleAddToCart(productTitle) {
@@ -61,6 +51,12 @@ function App() {
     setCategory("All");
     setSortOrder("default");
   }
+
+  // This effect updates the browser tab title whenever the number of
+  // results changes. The dependency array is the result count.
+  useEffect(() => {
+    document.title = `CvSU Mini Store (${displayedProducts.length} results)`;
+  }, [displayedProducts.length]);
 
   return (
     <div className="app">
