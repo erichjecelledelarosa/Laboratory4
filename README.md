@@ -1,34 +1,3 @@
-# CvSU Mini Store — Laboratory Exercise 4
-
-**React `useState` and `useEffect` (Live Search and Filter)**
-
-This project continues Laboratory Exercise 3. The product catalog now has a live search
-box, a category filter, a price sort option, and a Clear Filters button.
-
-## How to run
-
-```bash
-npm install
-npm run dev
-```
-
-## Branch
-
-Work for this exercise is in the `lab4-live-search` branch.
-
-## Files added or changed for Lab 4
-
-| File | Status | Description |
-|------|--------|-------------|
-| `src/components/SearchBar.jsx` | **Added** | Controlled search input, category dropdown, sort dropdown, and Clear Filters button |
-| `src/App.jsx` | Modified | Added the Lab 4 states, the debounce effect, the tab title effect, the filtering/sorting logic, the result count, and the empty state |
-| `src/App.css` | Modified | Basic styles for the search bar, result count, and empty state |
-| `README.md` | **Added** | This file (Guide Question answers) |
-
-Everything else from Lab 3 was kept as is: `ProductCard.jsx`, `ProductCard.css`,
-`products.js`, `main.jsx`, `index.html`, and the Add to Cart behavior.
-
----
 
 ## Guide Questions
 
