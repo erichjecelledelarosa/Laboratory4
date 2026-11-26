@@ -77,14 +77,3 @@ component body instead of using `useState`.
 
 ---
 
-## Note on the "Books" category
-
-The dropdown includes the **Books** option exactly as the activity requires. However,
-the sample product data from Laboratory Exercise 3 has no product with the category
-`Books`. Because the instructions say not to modify the original sample product data,
-selecting **Books** correctly shows the empty-state message:
-
-> No products found. Try a different keyword or category.
-
-This is the expected behavior of the filter code. Adding a book product to
-`products.js` would make that option show results.
